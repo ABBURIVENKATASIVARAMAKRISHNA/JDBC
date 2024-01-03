@@ -7,7 +7,7 @@ public class App
 {
 	public static void main( String[] args )
 	{
-
+		//My DATA BASE Connected
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
