@@ -11,28 +11,21 @@ public class App
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			try {
-				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","Siva@1998");
 
-				PreparedStatement pstmt=con.prepareStatement("select * from employee");
-				ResultSet res=pstmt.executeQuery();
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","Siva@1998");
 
-				while(res.next())
-				{
-					System.out.println(res.getInt("EMPNO")+" "+res.getString("ENAME")+" "+res.getString("JOB")+" "+res.getString("MGR"));
-				}
-				con.close();
+			PreparedStatement pstmt=con.prepareStatement("select * from employee");
+			ResultSet res=pstmt.executeQuery();
+
+			while(res.next())
+			{
+				System.out.println(res.getInt("EMPNO")+" "+res.getString("ENAME")+" "+res.getString("JOB")+" "+res.getString("MGR"));
 			}
-			catch (SQLException e) {
-				e.printStackTrace();
-			}			
-
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			con.close();
 		}
-
-
-
+		catch (Exception e) {
+			e.printStackTrace();
+		}			
 
 	}
 }
